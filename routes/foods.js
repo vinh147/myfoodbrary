@@ -9,9 +9,9 @@ router.get('/', async (req, res) => {
     searchOptions.name = new RegExp(req.query.name, 'i');
   }
   try {
-    const food = await Food.find({ searchOptions });
+    const foods = await Food.find({ searchOptions });
     res.render('foods/index', {
-      food: food,
+      foods: foods,
       searchOptions: req.query
     });
   } catch {
